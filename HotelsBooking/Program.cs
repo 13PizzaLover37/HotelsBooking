@@ -1,3 +1,5 @@
+using HotelsBooking.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelsBooking
 {
@@ -8,6 +10,8 @@ namespace HotelsBooking
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("BookingDB"));
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
